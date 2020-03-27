@@ -9,18 +9,27 @@ InitializationService.initializeCommon();
 //   render: h => h(App)
 // });
 
+const elements = document.getElementsByClassName("app") as any;
 
-new Vue({
-  delimiters: [ "${", "}$" ],
-  // data: {
-  //   message: "Hello world",
-  //   counter: 0
-  // },
-  // methods: {
-  //   increment: function () {
-  //     this.counter++;
-  //   }
-  // },
-  render: h => h(App)
+for(const el of elements){
+  new Vue({
+    delimiters: [ "${", "}$" ],
+    render: h => h(App)
 
-}).$mount("#app", true);
+  }).$mount(el, true);
+}
+
+// new Vue({
+//   delimiters: [ "${", "}$" ],
+//   // data: {
+//   //   message: "Hello world",
+//   //   counter: 0
+//   // },
+//   // methods: {
+//   //   increment: function () {
+//   //     this.counter++;
+//   //   }
+//   // },
+//   render: h => h(App)
+
+// }).$mount("#app", true);
