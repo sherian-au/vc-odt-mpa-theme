@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>{{ message }}</h1>
+    <h1>{{ message }}{{ productId }}</h1>
     <div>{{ counter }}</div>
     <button class="btn btn-primary" @click="increment">
       Increment
@@ -10,19 +10,24 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
+import { Prop } from "vue-property-decorator";
+import { Getter, Action } from "vuex-class";
 
 @Component({
   name: "Catalog",
-  delimiters: [ "${", "}$" ]
+  delimiters: ["${", "}$"]
 })
 export default class App extends Vue {
+  @Prop()
+  productId!: number;
 
-   message = "Hello world";
+  message = "Product #";
 
-   counter = 0;
-
-   increment() {
-     this.counter++;
-   }
+  @Getter("counter")
+  counter!: number;
+  @Action("increment")
+  increment() {
+    this.counter++;
+  }
 }
 </script>
