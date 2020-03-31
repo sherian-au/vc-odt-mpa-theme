@@ -14,10 +14,10 @@ import { Prop } from "vue-property-decorator";
 import { Getter, Action } from "vuex-class";
 
 @Component({
-  name: "Catalog"
-  // delimiters: ["${", "}$"]
+  name: "Comp"
+  //delimiters: ["${", "}$"] // it does not work
 })
-export default class App extends Vue {
+export default class Comp extends Vue {
   @Prop()
   productId!: number;
 

@@ -1,14 +1,30 @@
-<!-- <div id="app"><h1>Title</h1><div>0</div><button class="btn btn-primary">Increment</button></div> -->
-<div class="app" product-id="1"><h1>Title</h1><div>0</div><button class="btn btn-primary">Increment</button></div>
-<hr>
-<div class="app" product-id="2"><h1>Title</h1><div>0</div><button class="btn btn-primary">Increment</button></div>
+<!-- 1. Hydrate one element -->
+<!-- <div id="app"><h1>Title</h1>
+  <div>0</div><button class="btn btn-primary">Increment</button></div> -->
 
+<!-- 2. Hydration. Mounting to several elements with passing data from mount attributes -->
+{% for i in (1..1000) %}
+<div class="app" product-id="{{i}}"><h1>Title</h1>
+  <div>0</div>
+  <button class="btn btn-primary">Increment</button></div>
+{% endfor %}
+
+
+<!-- 3 runtime + compiler. Mount app to server rendered html -->
 <!-- <div id="app">
-  <h1>${ message }$</h1>
-  <div>${ counter }$</div>
-  <button class="btn btn-primary" @click="increment">
-    Increment
-  </button>
+  {% for i in (1..1) %}
+   <comp product-id="{{i}}"></comp>
+  {% endfor %}
+</div> -->
+
+
+<!-- 4 runtime+compiler single app with custom delimiters -->
+  <!-- <div id="app">
+    <h1>${ message }$</h1>
+    <div>${ counter }$</div>
+    <button class="btn btn-primary" @click="increment">
+      Increment
+    </button>
 </div> -->
 
 <script src="{{ 'bundle/dist/js/catalog.js' | static_asset_url | append_version }}"></script>

@@ -5,23 +5,9 @@ const pages = {
 };
 
 module.exports = {
-
-  preserveWhitespace: true,
-  // module:{
-  //   rules: [
-  //     {
-  //       test: /\.vue$/,
-  //       loader: 'vue-loader',
-  //       options: {
-  //         preserveWhitespace: false
-  //       }
-  //     }
-  //   ]
-  // },
-
   pages,
   outputDir: "../assets/static/bundle/dist",
-  runtimeCompiler: true,
+  runtimeCompiler: false,
   filenameHashing: false,
 
   devServer: {
@@ -52,6 +38,7 @@ module.exports = {
       .tap(options => {
         // modify the options...
         options.compilerOptions.preserveWhitespace = true;
+        options.compilerOptions.whitespace = "preserve";
         return options;
       });
 
